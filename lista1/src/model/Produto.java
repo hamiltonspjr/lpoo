@@ -1,7 +1,7 @@
 package model;
 
 public class Produto {
-    private Long id;
+    private int id;
     private String nome;
     private String descricao;
     private double valor;
@@ -10,7 +10,7 @@ public class Produto {
     public Produto() {
     }
 
-    public Produto(Long id, String nome, String descricao, double valor, int estoque) {
+    public Produto(int id, String nome, String descricao, double valor, int estoque) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
@@ -18,11 +18,11 @@ public class Produto {
         this.estoque = estoque;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -55,7 +55,10 @@ public class Produto {
     }
 
     public void setEstoque(int estoque) {
-        this.estoque = estoque;
+        int novoEstoque = this.estoque - estoque;
+        if(this.estoque > 0 && novoEstoque > 0) {
+            this.estoque = estoque;
+        }
     }
 
     @Override
