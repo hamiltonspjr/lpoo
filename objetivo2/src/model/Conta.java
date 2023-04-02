@@ -1,18 +1,19 @@
 package model;
 
-public class Conta {
+public abstract class Conta {
     protected double saldo;
 
     public Conta() {
+    }
+
+    public Conta(double saldo) {
+        this.saldo = saldo;
     }
 
     public double getSaldo() {
         return saldo;
     }
 
-    public Conta(double saldo) {
-        this.saldo = saldo;
-    }
     public void deposita(double valor) {
         this.saldo += valor;
     }
@@ -30,5 +31,12 @@ public class Conta {
         } else {
             System.out.println("A taxa deve ser maior que zero\n");
         }
+    }
+
+    @Override
+    public String toString() {
+        return "\nConta{" +
+                "saldo=" + saldo +
+                '}';
     }
 }
