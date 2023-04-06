@@ -68,8 +68,10 @@ public class ContaController {
 
         // f
         associados.sort(Comparator.comparing(Associado::getQuantidadeCotas).reversed());
+        System.out.println("\nassociados ordenados reverso:");
         System.out.println(associados);
         Associado maiorQuantidadeDeCotas = Collections.max(associados, Comparator.comparing(Associado::getQuantidadeCotas));
+        System.out.println("\nassociados com maior número de cotas:");
         associados.forEach(a -> {
             if(a.getQuantidadeCotas() == maiorQuantidadeDeCotas.getQuantidadeCotas()) {
                 System.out.print(a);
@@ -78,7 +80,9 @@ public class ContaController {
 
         //g
         contas.sort(Comparator.comparing(Conta::getSaldo).reversed());
+        System.out.println("\ncontas ordenadas:");
         System.out.println(contas);
+        System.out.println("\nAssociados que possuem contas cadastradas no sistema:");
         associados.forEach(a -> {
             if(a instanceof ContaCorrente) {
                 System.out.println(a);
@@ -86,6 +90,7 @@ public class ContaController {
         });
 
         Conta maiorSaldo = Collections.max(contas, Comparator.comparing(Conta::getSaldo));
+        System.out.println("\ncontas com maior saldo bancário:");
         contas.forEach(c -> {
             if(c.getSaldo() == maiorSaldo.getSaldo()) {
                 System.out.println(c);
