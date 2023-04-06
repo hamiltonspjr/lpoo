@@ -25,6 +25,11 @@ public class Cliente implements Associado{
     }
 
     @Override
+    public void setQdeCotas(int qdeCotas) {
+        this.qdeCotas = qdeCotas;
+    }
+
+    @Override
     public String toString() {
         return "\nCliente{" +
                 "nome='" + nome + '\'' +
