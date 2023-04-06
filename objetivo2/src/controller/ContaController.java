@@ -11,8 +11,8 @@ public class ContaController {
     public static void main(String[] args) {
         // a
         ContaCorrente contaC1 = new ContaCorrente(1000, 100, 100);
-        ContaCorrente contaC2 = new ContaCorrente(1500, 200,200);
-        ContaCorrente contaC3 = new ContaCorrente(2000, 300, 300);
+        ContaCorrente contaC2 = new ContaCorrente(1500, 400,200);
+        ContaCorrente contaC3 = new ContaCorrente(2000, 600, 300);
         System.out.println("Contas Corrente:\n");
         System.out.println(contaC1);
         System.out.println(contaC2);
@@ -27,7 +27,7 @@ public class ContaController {
         System.out.println(contaP3);
 
         //f
-        Cliente cliente1 = new Cliente("Lara", 100, 400);
+        Cliente cliente1 = new Cliente("Lara", 300, 400);
         Cliente cliente2 = new Cliente("Luiz", 600,600);
         Cliente cliente3 = new Cliente("Lopes", 600,600);
         System.out.println("Clientes:\n");
