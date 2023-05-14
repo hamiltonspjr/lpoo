@@ -4,22 +4,12 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class Pedido {
-    private int numero;
+    private Integer numero;
     private Calendar data;
-    private double valor;
+    private Double valor;
     Vendedor vendedor;
 
     public Pedido() {
     }
 
-
-
-    @Override
-    public String toString() {
-        return "\nPedido{" +
-                "numero=" + numero +
-                ", data=" + data +
-                ", valor=" + valor +
-                '}';
-    }
 }
