@@ -1,8 +1,8 @@
 package model;
 
 public class Produto {
-    private int codigo;
+    private Integer codigo;
     private String nome;
-    private int quantidade;
-    private double preco;
+    private Integer quantidade;
+    private Double preco;
 }

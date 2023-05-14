@@ -4,7 +4,7 @@ public class Item {
     private Integer codItem;
     private Double desconto;
     private Integer quantidade;
-    Produto produto;
+    private Produto produto;
 
     public Item() {
     }

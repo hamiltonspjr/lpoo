@@ -9,8 +9,8 @@ public class Pedido {
     private Integer numero;
     private Calendar data;
     private Double valor;
-    Vendedor vendedor;
-    List<Item> itens = new ArrayList<>();
+    private Vendedor vendedor;
+    private List<Item> itens = new ArrayList<>();
 
     public Pedido() {
     }
