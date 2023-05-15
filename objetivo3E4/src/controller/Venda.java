@@ -53,5 +53,23 @@ public class Venda {
                 System.out.println(produto.getNome() + " tem no estoque um total de: " + produto.getQuantidade() + " unidades!");
             });
 
+            produto1.setQuantidade(produto1.getQuantidade() + 10);
+            Fornecimento fornecimento1 = new Fornecimento(new GregorianCalendar(2024,5, 15, 14,34), produto1.getPreco() * 10, fornecedor1, produto1);
+
+            produto2.setQuantidade(produto2.getQuantidade() + 20);
+            Fornecimento fornecimento2 = new Fornecimento(new GregorianCalendar(2024,5, 15, 14,39), produto2.getPreco() * 20, fornecedor1, produto2);
+
+            List<Fornecimento> fornecimentos = new ArrayList<>();
+            fornecimentos.add(fornecimento1);
+            fornecimentos.add(fornecimento2);
+            System.out.println("Fornecimentos:\n");
+            System.out.println(fornecimentos);
+            double totalFornecido = 0.0;
+            for(Fornecimento fornecimento : fornecimentos) {
+                totalFornecido += fornecimento.getValorTotal();
+            }
+            System.out.println("Total gasto no fornecimento:\n");
+            System.out.println(totalFornecido);
+
     }
 }
