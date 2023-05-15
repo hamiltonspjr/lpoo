@@ -2,7 +2,6 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class Pedido {
@@ -69,6 +68,7 @@ public class Pedido {
                 "numero=" + numero +
                 ", data=" + data +
                 ", valor=" + valor +
+                ", vendedor=" + vendedor +
                 ", itens=" + itens +
                 '}';
     }

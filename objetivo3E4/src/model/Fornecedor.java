@@ -20,6 +20,12 @@ public class Fornecedor {
         this.produtos = produtos;
     }
 
+    public Fornecedor(Integer cnpj, String contato, String nome) {
+        this.cnpj = cnpj;
+        this.contato = contato;
+        this.nome = nome;
+    }
+
     public Integer getCnpj() {
         return cnpj;
     }
