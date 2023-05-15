@@ -27,9 +27,9 @@ public class Venda {
         itens2.add(item3);
         itens2.add(item4);
 
-
-            Pedido pedido1 = new Pedido(1, new GregorianCalendar(2024, 5,14, 22, 01), ((itens1.get(0).getQuantidade() * itens1.get(0).getProduto().getPreco()) - itens1.get(0).getDesconto()) + ((itens1.get(1).getQuantidade() * itens1.get(1).getProduto().getPreco()) - itens1.get(1).getDesconto()), vendedor1, itens1);
-            Pedido pedido2 = new Pedido(2, new GregorianCalendar(2024, 5,14, 22, 8), ((itens2.get(0).getQuantidade() * itens2.get(0).getProduto().getPreco()) - itens2.get(0).getDesconto()) + ((itens2.get(1).getQuantidade() * itens2.get(1).getProduto().getPreco()) - itens2.get(1).getDesconto()), vendedor1, itens2);
+        if (produto1.getQuantidade() >= item1.getQuantidade() + item3.getQuantidade() && produto2.getQuantidade() >= item2.getQuantidade() + item4.getQuantidade()) {
+            Pedido pedido1 = new Pedido(1, new GregorianCalendar(2024, 5, 14, 22, 01), ((itens1.get(0).getQuantidade() * itens1.get(0).getProduto().getPreco()) - itens1.get(0).getDesconto()) + ((itens1.get(1).getQuantidade() * itens1.get(1).getProduto().getPreco()) - itens1.get(1).getDesconto()), vendedor1, itens1);
+            Pedido pedido2 = new Pedido(2, new GregorianCalendar(2024, 5, 14, 22, 8), ((itens2.get(0).getQuantidade() * itens2.get(0).getProduto().getPreco()) - itens2.get(0).getDesconto()) + ((itens2.get(1).getQuantidade() * itens2.get(1).getProduto().getPreco()) - itens2.get(1).getDesconto()), vendedor1, itens2);
 
             List<Pedido> pedidos = new ArrayList<>();
             pedidos.add(pedido1);
@@ -54,10 +54,10 @@ public class Venda {
             });
 
             produto1.setQuantidade(produto1.getQuantidade() + 10);
-            Fornecimento fornecimento1 = new Fornecimento(new GregorianCalendar(2024,5, 15, 14,34), produto1.getPreco() * 10, fornecedor1, produto1);
+            Fornecimento fornecimento1 = new Fornecimento(new GregorianCalendar(2024, 5, 15, 14, 34), produto1.getPreco() * 10, fornecedor1, produto1);
 
             produto2.setQuantidade(produto2.getQuantidade() + 20);
-            Fornecimento fornecimento2 = new Fornecimento(new GregorianCalendar(2024,5, 15, 14,39), produto2.getPreco() * 20, fornecedor1, produto2);
+            Fornecimento fornecimento2 = new Fornecimento(new GregorianCalendar(2024, 5, 15, 14, 39), produto2.getPreco() * 20, fornecedor1, produto2);
 
             List<Fornecimento> fornecimentos = new ArrayList<>();
             fornecimentos.add(fornecimento1);
@@ -65,11 +65,32 @@ public class Venda {
             System.out.println("Fornecimentos:\n");
             System.out.println(fornecimentos);
             double totalFornecido = 0.0;
-            for(Fornecimento fornecimento : fornecimentos) {
+            for (Fornecimento fornecimento : fornecimentos) {
                 totalFornecido += fornecimento.getValorTotal();
             }
-            System.out.println("Total gasto no fornecimento:\n");
+            System.out.println("\nTotal gasto no fornecimento:");
             System.out.println(totalFornecido);
+        } else getError();
+    }
 
+    private static void getError() {
+        myThrowException();
+    }
+    private static void myThrowException () {
+        try {
+            System.out.println("\nOperação inválida, estoque insuficiente.\n");
+            throw new EstoqueException();
+        } catch (EstoqueException e) {
+            e.printStackTrace();
+        } finally {
+            System.err.println("Executou...\n");
+        }
+    }
+
+    static class EstoqueException extends Exception {
+        public EstoqueException() {
+            super("\nOperação inválida, estoque insuficiente.\n");
+        }
     }
 }
+
